@@ -1,2 +1,7 @@
-<h1>Admin::Dams#index</h1>
-<p>Find me in app/views/admin/dams/index.html.erb</p>
+<h1>ダム一覧</h1>
+
+<% @dams.each do |dam| %>
+	<%= dam.title %>
+	<%= dam.body %>
+<%end%>
+<%=link_to "ダム追加", new_admin_dam_path %>

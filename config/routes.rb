@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     devise_for :admins
-    get 'dams/index'
-    get 'dams/show'
-    get 'dams/edit'
-    get 'dams/new'
+    resources :dams, only: [:index, :show, :edit, :new, :create]
   end
 
   devise_for :users
@@ -19,7 +16,5 @@ Rails.application.routes.draw do
 
   get 'dams/index'
   get 'dams/show'
-  get 'dams/new'
-  get 'dams/edit'
 
 end

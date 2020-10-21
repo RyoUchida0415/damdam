@@ -1,2 +1,9 @@
-<h1>Admin::Dams#new</h1>
-<p>Find me in app/views/admin/dams/new.html.erb</p>
+<h1>ダム追加</h1>
+
+  <%= form_with model: @dam, url: admin_dams_path  do |f| %>
+
+	<%=f.text_field :title %>
+
+	<%=f.text_area :body %>
+	<%= f.submit '追加する' %>
+<% end %>
