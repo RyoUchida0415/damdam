@@ -1,9 +1,14 @@
 <h1>ダム追加</h1>
 
   <%= form_with model: @dam, url: admin_dams_path  do |f| %>
-
+  	<h4>ダム名</h4>
 	<%=f.text_field :title %>
-
+	<h4>紹介文</h4>
 	<%=f.text_area :body %>
+	<h4>電力会社</h4>
+	<%= f.select :category, Dam.categories.keys,{} %>
+	<div>
+		<br>
 	<%= f.submit '追加する' %>
+	</div>
 <% end %>

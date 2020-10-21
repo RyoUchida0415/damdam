@@ -1,4 +1,12 @@
 <h1>ダム一覧</h1>
 
+<% @dams.each do |dam| %>
+<div>
+	<%= dam.title %>
+	<%= dam.body %>
+	<%= dam.category %>
+	</div>
+<%end%>
+
 <%= link_to 'logout', destroy_user_session_path, method: :delete %>
 
