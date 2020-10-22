@@ -4,6 +4,7 @@ class Admin::DamsController < ApplicationController
   end
 
   def show
+    @dam = Dam.find(params[:id])
   end
 
   def edit
@@ -19,8 +20,15 @@ class Admin::DamsController < ApplicationController
   	redirect_to admin_dams_path
   end
 
-private
+  def destroy
+    @dam = Dam.find(params[:id])
+    @dam.destroy
+    redirect_to admin_dams_path
+  end
+
+  private
 	def dam_params
 		params.require(:dam).permit(:title, :body, :category)
 	end
+
 end

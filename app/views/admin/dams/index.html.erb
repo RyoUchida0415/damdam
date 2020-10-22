@@ -2,7 +2,7 @@
 
 <% @dams.each do |dam| %>
 <div>
-	<%= dam.title %>
+	<%= link_to dam.title ,admin_dam_path(dam) %>
 	<%= dam.body %>
 	<%= dam.category %>
 </div>

@@ -1,2 +1,5 @@
-<h1>Admin::Dams#show</h1>
-<p>Find me in app/views/admin/dams/show.html.erb</p>
+<%= @dam.title %>
+<%= @dam.body %>
+<%= @dam.category %>
+
+<%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>

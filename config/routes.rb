@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     devise_for :admins
-    resources :dams, only: [:index, :show, :edit, :new, :create]
+    resources :dams, only: [:index, :show, :edit, :new, :create, :destroy]
   end
 
   devise_for :users
