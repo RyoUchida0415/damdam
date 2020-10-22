@@ -5,6 +5,7 @@
 	<%= link_to dam.title ,admin_dam_path(dam) %>
 	<%= dam.body %>
 	<%= dam.category %>
+	<%= attachment_image_tag dam, :image, :fill, 100,100, format:'jpeg' %>
 </div>
 <%end%>
 <%=link_to "ダム追加", new_admin_dam_path %>

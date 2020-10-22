@@ -7,6 +7,8 @@
 	<%=f.text_area :body %>
 	<h4>電力会社</h4>
 	<%= f.select :category, Dam.categories.keys,{} %>
+	<h4>画像</h4>
+	<%= f.attachment_field :image %>
 	<div>
 		<br>
 	<%= f.submit '追加する' %>

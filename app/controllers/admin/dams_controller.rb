@@ -28,7 +28,7 @@ class Admin::DamsController < ApplicationController
 
   private
 	def dam_params
-		params.require(:dam).permit(:title, :body, :category)
+		params.require(:dam).permit(:title, :body, :category, :image)
 	end
 
 end
