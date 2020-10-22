@@ -1,12 +1,25 @@
+<%= link_to 'logout', destroy_user_session_path, method: :delete %>
+
 <h1>ダム一覧</h1>
 
 <% @dams.each do |dam| %>
-<div>
-	<%= dam.title %>
-	<%= dam.body %>
-	<%= dam.category %>
+<div class="one-dam">
+	<div>
+		<%= link_to dam.title ,dams_show_path(dam) %>
 	</div>
+		<%= attachment_image_tag dam, :image, :fill, 150,150, format:'jpeg' %>
+	<div>
+		<%= dam.body %>
+		<%= dam.category %>
+	</div>
+	<div>
+		〒<%= dam.postal_code %>
+	</div>
+	<div>
+		<%= dam.prefecture_code %>
+		<%= dam.city %>
+		<%= dam.street %>
+	</div>
+</div>
 <%end%>
-
-<%= link_to 'logout', destroy_user_session_path, method: :delete %>
 

@@ -2,13 +2,21 @@
 
   <%= form_with model: @dam, url: admin_dams_path  do |f| %>
   	<h4>ダム名</h4>
-	<%=f.text_field :title %>
+		<%=f.text_field :title %>
 	<h4>紹介文</h4>
-	<%=f.text_area :body %>
+		<%=f.text_area :body %>
 	<h4>電力会社</h4>
-	<%= f.select :category, Dam.categories.keys,{} %>
+		<%= f.select :category, Dam.categories.keys,{} %>
 	<h4>画像</h4>
-	<%= f.attachment_field :image %>
+		<%= f.attachment_field :image %>
+	<h4>郵便番号</h4>
+		<%=f.text_field :postal_code %>
+	<h4>都道府県</h4>
+		<%= f.select :prefecture_code, Dam.prefecture_codes.keys,{} %>
+	<h4>都市</h4>
+		<%=f.text_field :city %>
+	<h4>番地</h4>
+		<%=f.text_field :street %>
 	<div>
 		<br>
 	<%= f.submit '追加する' %>
