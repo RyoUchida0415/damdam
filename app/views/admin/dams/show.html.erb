@@ -2,16 +2,20 @@
 <div>
 <%= @dam.body %>
 <%= @dam.category %>
+</div>
 <div>
+
+		<%= attachment_image_tag @dam, :image, :fill, 300,300, format:'jpeg' %>
+</div>
+	<div>
 〒<%= @dam.postal_code %>
 </div>
-		<%= attachment_image_tag @dam, :image, :fill, 300,300, format:'jpeg' %>
-<div>
 		<%= @dam.prefecture_code %>
 		<%= @dam.city %>
 		<%= @dam.street %>
 </div>
+<div>
 <%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
-<br>
+</div>
 <%=link_to "ダム一覧へ", admin_dams_path %>
 

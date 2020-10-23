@@ -12,15 +12,12 @@
 		<%= attachment_image_tag dam, :image, :fill, 150,150, format:'jpeg' %>
 	<div>
 		<%= dam.body %>
+	</div>
+	<div>
 		<%= dam.category %>
 	</div>
 	<div>
-		〒<%= dam.postal_code %>
-	</div>
-	<div>
 		<%= dam.prefecture_code %>
-		<%= dam.city %>
-		<%= dam.street %>
 	</div>
 </div>
 <%end%>
