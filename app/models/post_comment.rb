@@ -1,4 +1,4 @@
 class PostComment < ApplicationRecord
 	belongs_to :user
-	belongs_to :post_comment
+	belongs_to :dam
 end

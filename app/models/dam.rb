@@ -14,5 +14,5 @@ class Dam < ApplicationRecord
     沖縄県:46
   }
   	attachment :image
-    has_many :post_comments, dependent: :denstroy
+    has_many :post_comments, dependent: :destroy
 end
