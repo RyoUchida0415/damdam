@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get 'homes/admin'
   root 'homes#top'
 
-  get 'dams/index'
-  get 'dams/show'
+  resources :dams, only: [:index, :show] do
+      resources :post_comments, only: [:create, :destroy]
+  end
 
 end
+

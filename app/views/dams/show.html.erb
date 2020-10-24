@@ -1,2 +1,30 @@
-<h1>Dams#show</h1>
-<p>Find me in app/views/dams/show.html.erb</p>
+<h1><%= @dam.title %></h1>
+<div>
+	<%= @dam.body %>
+	<%= @dam.category %>
+</div>
+<div>
+	<%= attachment_image_tag @dam, :image, :fill, 300,300, format:'jpeg' %>
+</div>
+<div>
+	〒<%= @dam.postal_code %>
+</div>
+		<%= @dam.prefecture_code %>
+		<%= @dam.city %>
+		<%= @dam.street %>
+</div>
+	<p>評判</p>
+		<% @dam.post_comments.each do |post_comment| %>
+			<%= post_comment.created_at.strftime('%Y/%m/%d') %>
+			<%= post_comment.user.name %>
+			<%= post_comment.comment %>
+		<% end %>
+	<p>コメント投稿</p>
+		<%= form_for [@dam, @post_comment] do |f| %>
+			<%= f.text_area :comment %>
+			<%= f.submit "送信する" %>
+		<% end %>
+<div>
+	<%=link_to "ダム削除", dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
+</div>
+	<%=link_to "ダム一覧へ", dams_path %>
