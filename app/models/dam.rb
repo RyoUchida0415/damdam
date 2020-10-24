@@ -15,4 +15,5 @@ class Dam < ApplicationRecord
   }
   	attachment :image
     has_many :post_comments, dependent: :destroy
+    belongs_to :admin
 end
