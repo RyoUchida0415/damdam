@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :dams, only: [:index, :show] do
       resources :post_comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
   end
 
 end

@@ -16,6 +16,17 @@
 <div>
 		<%= link_to @dam.url, @dam.url %>
 </div>
+	<% if @dam.favorited_by?(current_user) %>
+  		<%= link_to dam_favorites_path(@dam), method: :delete do %>
+    		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+    		<%= @dam.favorites.count %> いいね
+  		<% end %>
+	<% else %>
+  		<%= link_to dam_favorites_path(@dam), method: :post do %>
+    		<i class="fa fa-heart-o" aria-hidden="true"></i>
+    		<%= @dam.favorites.count %> いいね
+  		<% end %>
+	<% end %>
 	<p>評判</p>
 		<% @dam.post_comments.each do |post_comment| %>
 			<div>
