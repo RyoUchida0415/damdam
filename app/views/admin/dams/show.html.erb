@@ -17,6 +17,15 @@
 		<%= link_to @dam.url, @dam.url %>
 	</div>
 </div>
+評判
+		<% @dam.post_comments.each do |post_comment| %>
+			<div>
+				<%= post_comment.created_at.strftime('%Y/%m/%d') %>
+				<%= post_comment.user.name %>さん
+				<%= post_comment.comment %>
+			    <%= link_to "コメント削除", admin_dam_path(@dam), method: :delete %>
+			</div>
+		<% end %>
 <div>
 <%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
 </div>

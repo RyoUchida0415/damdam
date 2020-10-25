@@ -18,9 +18,14 @@
 </div>
 	<p>評判</p>
 		<% @dam.post_comments.each do |post_comment| %>
-			<%= post_comment.created_at.strftime('%Y/%m/%d') %>
-			<%= post_comment.user.name %>
-			<%= post_comment.comment %>
+			<div>
+				<%= post_comment.created_at.strftime('%Y/%m/%d') %>
+				<%= post_comment.user.name %>さん
+				<%= post_comment.comment %>
+				<% if post_comment.user == current_user %>
+              		<%= link_to "削除", dam_post_comment_path(post_comment.dam, post_comment), method: :delete %>
+          		<% end %>
+			</div>
 		<% end %>
 	<p>コメント投稿</p>
 		<%= form_for [@dam, @post_comment] do |f| %>
