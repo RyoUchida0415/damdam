@@ -1,11 +1,11 @@
-<%= link_to 'logout', destroy_user_session_path, method: :delete %>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 
 <h1>ダム一覧</h1>
 
 <% @dams.each do |dam| %>
 <div class="one-dam">
 	<div>
-		<%= link_to dam.title ,dams_show_path(dam) %>
+		<%= link_to dam.title ,dam_path(dam) %>
 	</div>
 		<%= attachment_image_tag dam, :image, :fill, 150,150, format:'jpeg' %>
 	<div>
@@ -20,6 +20,7 @@
 		<%= dam.city %>
 		<%= dam.street %>
 	</div>
+	<div>コメント数:<%= dam.post_comments.count %>件</div>
 </div>
 <%end%>
 

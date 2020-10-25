@@ -13,6 +13,9 @@
 		<%= @dam.prefecture_code %>
 		<%= @dam.city %>
 		<%= @dam.street %>
+<div>
+		<%= link_to @dam.url, @dam.url %>
+	</div>
 </div>
 <div>
 <%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_040621) do
+ActiveRecord::Schema.define(version: 2020_10_25_063129) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_040621) do
     t.string "street"
     t.string "postal_code"
     t.integer "prefecture_code"
+    t.string "url"
   end
 
   create_table "post_comments", force: :cascade do |t|

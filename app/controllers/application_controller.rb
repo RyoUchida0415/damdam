@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 		when Admin
 		  admin_dams_path
 		when User
-		  dams_index_path
+		  dams_path
 		end
 	end
 

@@ -13,6 +13,9 @@
 		<%= @dam.city %>
 		<%= @dam.street %>
 </div>
+<div>
+		<%= link_to @dam.url, @dam.url %>
+</div>
 	<p>評判</p>
 		<% @dam.post_comments.each do |post_comment| %>
 			<%= post_comment.created_at.strftime('%Y/%m/%d') %>
