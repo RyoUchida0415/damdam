@@ -12,7 +12,8 @@
 	<h4>郵便番号</h4>
 		<%=f.text_field :postal_code %>
 	<h4>都道府県</h4>
-		<%= f.select :prefecture_code, Dam.prefecture_codes.keys,{include_blank: '選択してください'} %>
+		<!-- f.select とf.collection_selectの違いはまた調べる-->
+		<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name ,{include_blank: '選択してください'}%>
 	<h4>都市</h4>
 		<%=f.text_field :city %>
 	<h4>番地</h4>
