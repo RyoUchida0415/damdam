@@ -1,0 +1,21 @@
+<% dams.each do |dam| %>
+<div class="one-dam">
+	<div>
+		<%= link_to dam.title ,dam_path(dam) %>
+	</div>
+		<%= attachment_image_tag dam, :image, :fill, 150,150, format:'jpeg' %>
+	<div>
+		<%= dam.body %>
+		<%= dam.category %>
+	</div>
+	<div>
+		〒<%= dam.postal_code %>
+	</div>
+	<div>
+		<%= dam.prefecture_code %>
+		<%= dam.city %>
+		<%= dam.street %>
+	</div>
+	<div>コメント数:<%= dam.post_comments.count %>件</div>
+</div>
+<%end%>

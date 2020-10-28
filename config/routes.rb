@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searches/search'
   namespace :admin do
     devise_for :admins
     resources :dams, only: [:index, :show, :edit, :new, :create, :destroy]
