@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .one-dam{
 	margin: 10px;
 	border: solid 3px #00CC00;
@@ -11,4 +18,14 @@
 	float: left;
 	text-align:center;
 
+}
+
+.main{
+	float: left;
+	width:50%;
+}
+
+#map{
+	float: left;
+	margin-top:110px;
 }

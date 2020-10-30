@@ -1,28 +1,30 @@
-<h1><%= @dam.title %></h1>
-<div>
-	<%= @dam.body %>
-	<%= @dam.category %>
+<div class="main">
+    <h1><%= @dam.title %></h1>
+        <div>
+	         <%= @dam.body %>
+	         <%= @dam.category %>
+        </div>
+        <div>
+      	   <%= attachment_image_tag @dam, :image, :fill, 500,500, format:'jpeg' %>
+        </div>
+        <div>
+          〒<%= @dam.postal_code %>
+          <%= @dam.prefecture_code %>
+          <%= @dam.city %>
+          <%= @dam.street %>
+        </div>
+        <div>
+	         外部リンク：<%= link_to @dam.url, @dam.url %>
+        </div>
 </div>
-<div>
-	<%= attachment_image_tag @dam, :image, :fill, 400,400, format:'jpeg' %>
-</div>
-<div>
-	〒<%= @dam.postal_code %>
-</div>
-	<%= @dam.prefecture_code %>
-	<%= @dam.city %>
-	<%= @dam.street %>
-<div>
-	<%= link_to @dam.url, @dam.url %>
-</div>
-
-<div id='map' class="<%= @dam.prefecture_code + @dam.city + @dam.street %>"></div>
-<style>
-#map{
-  height: 400px;
-  width:30%;
-}
-</style>
+<div class="clearfix">
+    <div id='map' class="<%= @dam.prefecture_code + @dam.city + @dam.street %>"></div>
+        <style>
+            #map{
+              height: 500px;
+              width:40%;
+            }
+        </style>
 <script>
 /*
 mapを関数の外で定義(codeAddressでも使うため)
