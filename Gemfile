@@ -68,4 +68,8 @@ gem "refile-mini_magick"
 
 gem 'jp_prefecture'
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 gem 'jquery-rails'
+
