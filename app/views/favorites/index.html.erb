@@ -1,0 +1,9 @@
+<%=link_to "ダム一覧へ", dams_path %>
+<h4><%= @user.name %>さんのお気に入り一覧</h4>
+
+
+<% @favorites.each do |favorite| %>
+	<div>
+		<%= favorite.dam.title %>
+	</div>
+<% end %>

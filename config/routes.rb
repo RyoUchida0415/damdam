@@ -20,5 +20,6 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
   end
 
+  get 'favorites/index'
 end
 

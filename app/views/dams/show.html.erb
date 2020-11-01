@@ -1,3 +1,4 @@
+<div class="main">
 <h1><%= @dam.title %></h1>
 <div>
 	<%= @dam.body %>
@@ -14,7 +15,9 @@
 		<%= @dam.street %>
 </div>
 <div>
-		<%= link_to @dam.url, @dam.url %>
+		外部リンク：<%= link_to @dam.url, @dam.url %>
+
+    <div class="clearfix">
 <div id='map' class="<%= @dam.prefecture_code + @dam.city + @dam.street %>"></div>
 <style>
 #map{
