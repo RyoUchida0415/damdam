@@ -1,87 +1,86 @@
 <div class="main">
-<h1><%= @dam.title %></h1>
-<div>
-	<%= @dam.body %>
-	<%= @dam.category %>
+    <h1><%= @dam.title %></h1>
+      <div>
+      	<%= @dam.body %>
+      	<%= @dam.category %>
+      </div>
+      <div>
+      	<%= attachment_image_tag @dam, :image, :fill, 500,500, format:'jpeg' %>
+      </div>
+      <div>
+      	〒<%= @dam.postal_code %>
+      		<%= @dam.prefecture_code %>
+      		<%= @dam.city %>
+      		<%= @dam.street %>
+      </div>
+      <div>
+          外部リンク:<%= link_to @dam.url, @dam.url %>
+      </div>
 </div>
-<div>
-	<%= attachment_image_tag @dam, :image, :fill, 300,300, format:'jpeg' %>
-</div>
-<div>
-	〒<%= @dam.postal_code %>
-</div>
-		<%= @dam.prefecture_code %>
-		<%= @dam.city %>
-		<%= @dam.street %>
-</div>
-<div>
-		外部リンク：<%= link_to @dam.url, @dam.url %>
+<div class="clearfix">
+    <div id='map' class="<%= @dam.prefecture_code + @dam.city + @dam.street %>"></div>
+        <style>
+        #map{
+          height: 500px;
+          width:40%;
+        }
+        </style>
+          <script>
+          /*
+          mapを関数の外で定義(codeAddressでも使うため)
+          geocoderを用意
+          */
 
-    <div class="clearfix">
-<div id='map' class="<%= @dam.prefecture_code + @dam.city + @dam.street %>"></div>
-<style>
-#map{
-  height: 400px;
-  width:30%;
-}
-</style>
-<script>
-/*
-mapを関数の外で定義(codeAddressでも使うため)
-geocoderを用意
-*/
+          let map
+          let geocoder
 
-let map
-let geocoder
+          function initMap(){
+            // geocoderを初期化
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode( { 'address': $('#map').attr('class')}, function(results, status) {
+              if (status == 'OK') {
+          		// map.setCenterで地図が移動
+                map.setCenter(results[0].geometry.location);
 
-function initMap(){
-  // geocoderを初期化
-  geocoder = new google.maps.Geocoder();
-  geocoder.geocode( { 'address': $('#map').attr('class')}, function(results, status) {
-    if (status == 'OK') {
-		// map.setCenterで地図が移動
-      map.setCenter(results[0].geometry.location);
+          		// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+              } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+              }
+            });
 
-		// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+            });
+          }
 
-  map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 8
-  });
-}
+          function codeAddress(){
+            // 入力を取得
+            let inputAddress = document.getElementById('address').value;
 
-function codeAddress(){
-  // 入力を取得
-  let inputAddress = document.getElementById('address').value;
+            // geocodingしたあとmapを移動
+          }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
 
-  // geocodingしたあとmapを移動
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
-
-</div>
-
+      </div>
 </div>
 	<% if @dam.favorited_by?(current_user) %>
   		<%= link_to dam_favorites_path(@dam), method: :delete do %>
     		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-    		<%= @dam.favorites.count %> いいね
-  		<% end %>
+        <% end %>
+    		<%= @dam.favorites.count %>
 	<% else %>
   		<%= link_to dam_favorites_path(@dam), method: :post do %>
     		<i class="fa fa-heart-o" aria-hidden="true"></i>
-    		<%= @dam.favorites.count %> いいね
-  		<% end %>
+          <% end %>
+    		<%= @dam.favorites.count %>
 	<% end %>
-	<p>評判</p>
+	<p><i class="far fa-comment"></i>評判</p>
 		<% @dam.post_comments.each do |post_comment| %>
 			<div>
 				<%= post_comment.created_at.strftime('%Y/%m/%d') %>
@@ -92,7 +91,7 @@ function codeAddress(){
           		<% end %>
 			</div>
 		<% end %>
-	<p>コメント投稿</p>
+	<p><i class="far fa-comment"></i>投稿</p>
 		<%= form_for [@dam, @post_comment] do |f| %>
 			<%= f.text_area :comment %>
 			<%= f.submit "送信する" %>
