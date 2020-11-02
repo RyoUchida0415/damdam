@@ -4,6 +4,8 @@
 
 <% @favorites.each do |favorite| %>
 	<div>
-		<%= favorite.dam.title %>
+		<%= link_to dam_path(favorite.dam.id) do %>
+			 <% favorite.dam.title %>
+		<% end %>
 	</div>
 <% end %>

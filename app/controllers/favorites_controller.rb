@@ -3,7 +3,6 @@ class FavoritesController < ApplicationController
     def index
         @user = current_user
         @favorites = Favorite.where(user_id: @user.id)
-        #dam = Dam.find(params[:id])
     end
 
 	def create
