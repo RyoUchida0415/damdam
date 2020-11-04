@@ -77,10 +77,11 @@
   position: fixed;
   top: 0;
   color: black;
-  width: 20%;
-  min-height: 100%;
+  width: 100%;
+  height: 150px;
   display: none;
   z-index: 11;
+  background-color: #CEF9DC;
 }
 #sp-menu li{
   text-align: center;

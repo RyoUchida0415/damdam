@@ -17,6 +17,9 @@
 				<li class="icon">
 					<%= link_to 'お気に入り一覧へ',favorites_index_path %>
 				</li>
+				<li class="icon">
+					<%=link_to "ダム一覧へ", dams_path %>
+				</li>
 			</ul>
 		<% elsif admin_admin_signed_in? %>
 			<ul class="nav navbar-nav navbar-right" >
@@ -30,10 +33,7 @@
 		<% else %>
 			<ul class="nav navbar-nav navbar-right" >
 				<li class="icon">
-					<%=link_to "管理者ログアウト", destroy_admin_admin_session_path, method: :delete %>
-				</li>
-				<li class="icon">
-					<%=link_to "ダム追加", new_admin_dam_path %>
+					<%= link_to 'about', homes_about_path %>
 				</li>
 			</ul>
 		<% end %>

@@ -1,3 +1,5 @@
+<%= render 'admin/header' %>
+
   <h3>検索結果'<%= @content %>'</h3>
   <%= render 'dams/index', dams: @records %>
   <%=link_to "ダム一覧へ", dams_path %>
