@@ -1,11 +1,12 @@
+<%= render 'admin/header' %>
+
 <div class="main">
-    <h1><%= @dam.title %></h1>
-        <div>
-	         <%= @dam.body %>
-	         <%= @dam.category %>
-        </div>
+    <a>[<%= @dam.category %>]</a><h1><%= @dam.title %></h1>
         <div>
       	   <%= attachment_image_tag @dam, :image, :fill, 500,500, format:'jpeg' %>
+        </div>
+        <div>
+           <%= @dam.body %>
         </div>
         <div>
           〒<%= @dam.postal_code %>
@@ -82,7 +83,6 @@
 			</div>
 		<% end %>
 <div>
-<%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
+  <%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
 </div>
-<%=link_to "ダム一覧へ", admin_dams_path %>
-
+  <%=link_to "ダム一覧へ", admin_dams_path %>

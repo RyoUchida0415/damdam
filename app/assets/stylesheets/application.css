@@ -13,3 +13,78 @@
  *= require_tree .
  *= require_self
  */
+/* ---------------------------- */
+/* --- ハンバーガーアイコン --- */
+/* ---------------------------- */
+#hm-icon{
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 22;
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+}
+
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+  z-index: 20;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+.menu-trigger.active{
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.menu-trigger.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: black;
+}
+.menu-trigger.active span:nth-of-type(2) {
+  -webkit-transform: translateY(0px) rotate(45deg);
+  transform: translateY(0px) rotate(45deg);
+}
+.menu-trigger.active span:nth-of-type(3) {
+    opacity: 0;
+  background-color: black;
+}
+/* ------------------------ */
+/* ------ spメニュー ------ */
+/* ------------------------ */
+#sp-menu {
+  position: fixed;
+  top: 0;
+  color: black;
+  width: 20%;
+  min-height: 100%;
+  display: none;
+  z-index: 11;
+}
+#sp-menu li{
+  text-align: center;
+}
+#sp-menu a{
+  color: black;
+}

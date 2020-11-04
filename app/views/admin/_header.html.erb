@@ -1,0 +1,50 @@
+<header>
+	<div class="logo">
+	  <%= link_to root_path , data: {"turbolinks" => false} do %>
+      	<h1>damdam</h1>
+      <% end %>
+  	</div>
+
+  	<div id="sp-menu">
+		<% if user_signed_in? %>
+			<ul class="nav navbar-nav navbar-right" >
+				<li class="icon">
+					<%= link_to 'about', homes_about_path %>
+				</li>
+				<li class="icon">
+					<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+				</li>
+				<li class="icon">
+					<%= link_to 'お気に入り一覧へ',favorites_index_path %>
+				</li>
+			</ul>
+		<% elsif admin_admin_signed_in? %>
+			<ul class="nav navbar-nav navbar-right" >
+				<li class="icon">
+					<%=link_to "管理者ログアウト", destroy_admin_admin_session_path, method: :delete %>
+				</li>
+				<li class="icon">
+					<%=link_to "ダム追加", new_admin_dam_path %>
+				</li>
+			</ul>
+		<% else %>
+			<ul class="nav navbar-nav navbar-right" >
+				<li class="icon">
+					<%=link_to "管理者ログアウト", destroy_admin_admin_session_path, method: :delete %>
+				</li>
+				<li class="icon">
+					<%=link_to "ダム追加", new_admin_dam_path %>
+				</li>
+			</ul>
+		<% end %>
+	</div>
+
+	<div id="hm-icon">
+      	<a class="menu-trigger" href="#">
+        	<span></span>
+        	<span></span>
+        	<span></span>
+      	</a>
+    </div>
+
+</header>

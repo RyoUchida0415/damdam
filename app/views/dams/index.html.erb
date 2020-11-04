@@ -1,5 +1,5 @@
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<%= link_to 'お気に入り一覧へ',favorites_index_path %>
+<%= render 'admin/header' %>
+
 
 <% if user_signed_in? %>
   <div class="search-form" style="margin-top: 70px; text-align: center;">
