@@ -1,6 +1,5 @@
 <%= render 'admin/header' %>
 
-
 <% if user_signed_in? %>
   <div class="search-form" style="margin-top: 70px; text-align: center;">
     <%= form_tag(searches_search_path, method: :get) do %>
