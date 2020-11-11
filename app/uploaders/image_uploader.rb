@@ -47,5 +47,5 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   #追記
    include CarrierWave::MiniMagick
-   process resize_to_fill: [100, 100, 'Center']
-end
+    process resize_to_fit: [300, 200]
+    end

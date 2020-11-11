@@ -7,7 +7,11 @@
 	<div>
 		<%= link_to dam.title ,admin_dam_path(dam) %>
 	</div>
-		<%= attachment_image_tag dam, :image, :fill, 150,150, format:'jpeg' %>
+             <% dam.images.each do |image| %>
+              <%= image_tag image.to_s %>
+              <% break %>
+            <% end %>
+		<!--<%= attachment_image_tag dam, :image, :fill, 150,150, format:'jpeg' %>-->
 	<div>
 		<%= dam.body %>
 	</div>
