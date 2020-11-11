@@ -45,7 +45,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  #追記
-   include CarrierWave::MiniMagick
-    process resize_to_fit: [300, 200]
-    end
+  #追記。100の数字は大きさではなくファイルの容量
+  include CarrierWave::MiniMagick
+    process resize_to_fill: [100, 100, 'Center']
+  end

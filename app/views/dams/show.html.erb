@@ -6,9 +6,11 @@
       	<%= @dam.body %>
       	<%= @dam.category %>
       </div>
-      <div>
-      	<%= attachment_image_tag @dam, :image, :fill, 500,500, format:'jpeg' %>
-      </div>
+      <div class="many_images">
+            <% @dam.images.each do |image| %>
+              <%= image_tag image.to_s %>
+            <% end %>
+        </div>
       <div>
       	〒<%= @dam.postal_code %>
       		<%= @dam.prefecture_code %>
