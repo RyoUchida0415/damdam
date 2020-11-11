@@ -77,4 +77,6 @@ group :production do
   gem 'mysql2'
 end
 gem 'jquery-rails'
-
+#画像複数投稿
+gem 'carrierwave'
+gem 'mini_magick'

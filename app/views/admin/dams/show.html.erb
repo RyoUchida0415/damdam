@@ -3,7 +3,10 @@
 <div class="main">
     <a>[<%= @dam.category %>]</a><h1><%= @dam.title %></h1>
         <div>
-      	   <%= attachment_image_tag @dam, :image, :fill, 500,500, format:'jpeg' %>
+      	   <!--<%= attachment_image_tag @dam, :image, :fill, 500,500, format:'jpeg' %>-->
+            <% @dam.images.each do |image| %>
+              <%= image_tag image.to_s %>
+            <% end %>
         </div>
         <div>
            <%= @dam.body %>

@@ -22,4 +22,6 @@ class Dam < ApplicationRecord
     def favorited_by?(user)
       favorites.where(user_id: user.id).exists?
     end
+    #画像複数投稿
+    mount_uploaders :images, ImageUploader
 end
