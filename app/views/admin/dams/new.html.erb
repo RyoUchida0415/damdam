@@ -10,7 +10,7 @@
 	<h4>電力会社</h4>
 		<%= f.select :category, Dam.categories.keys,{include_blank: '選択してください'} %>
 	<h4>画像</h4>
-	<%= attachment_image_tag @dam, :image, fallback: 'no_image2.jpg', class: 'center-block img-thumbnail img-responsive img_prev' %>
+	<%= attachment_image_tag @dam, :image, fallback: 'no_image2.jpg', class: 'img_prev' %>
 	<br>
 	<%= f.file_field :images, multiple: true ,class: 'img_field' %>
 	<h4>郵便番号</h4>
