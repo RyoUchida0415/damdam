@@ -1,8 +1,10 @@
 <%= render 'admin/header' %>
 
 <% if user_signed_in? %>
+
   <div class="search-form" style="margin-top: 70px; text-align: center;">
     <%= form_tag(searches_search_path, method: :get) do %>
+    <i class="fas fa-search"></i>
       <%= text_field_tag 'search[content]' %>
       <%= submit_tag '検索' %>
     <% end %>
@@ -26,9 +28,11 @@
 		<%= dam.body %>
 	</div>
 	<div>
+  		<i class="fas fa-building" style="color: green;"></i>
 		[<%= dam.category %>]
 	</div>
 	<div>
+		<i class="fas fa-map-marker-alt"></i>
 		〒<%= dam.postal_code %>
 	</div>
 	<div>

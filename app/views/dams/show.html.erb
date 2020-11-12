@@ -1,22 +1,22 @@
 <%= render 'admin/header' %>
-
 <div class="main">
-    <h1><%= @dam.title %></h1>
-      <div>
-      	<%= @dam.body %>
-      	<%= @dam.category %>
-      </div>
+  <i class="fas fa-building" style="color: green;"></i>
+  <a>[<%= @dam.category %>]</a><h1><%= @dam.title %></h1>
       <div class="many_images">
             <% @dam.images.each do |image| %>
               <%= image_tag image.to_s %>
             <% end %>
         </div>
-      <div>
-      	〒<%= @dam.postal_code %>
-      		<%= @dam.prefecture_code %>
-      		<%= @dam.city %>
-      		<%= @dam.street %>
-      </div>
+        <div>
+          <%= @dam.body %>
+        </div>
+        <div>
+          <i class="fas fa-map-marker-alt"></i>
+        	〒<%= @dam.postal_code %>
+        		<%= @dam.prefecture_code %>
+        		<%= @dam.city %>
+        		<%= @dam.street %>
+        </div>
       <div>
           外部リンク:<%= link_to @dam.url, @dam.url %>
       </div>
@@ -73,6 +73,7 @@
 
       </div>
 </div>
+<div class="submain">
 	<% if @dam.favorited_by?(current_user) %>
   		<%= link_to dam_favorites_path(@dam), method: :delete do %>
     		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
@@ -91,6 +92,7 @@
 				<%= post_comment.user.name %>さん
 				<%= post_comment.comment %>
 				<% if post_comment.user == current_user %>
+                  <i class="far fa-trash-alt"></i>
               		<%= link_to "削除", dam_post_comment_path(post_comment.dam, post_comment), method: :delete %>
           		<% end %>
 			</div>
@@ -101,6 +103,8 @@
 			<%= f.submit "送信する" %>
 		<% end %>
 <div>
+  <i class="far fa-trash-alt"></i>
 	<%=link_to "ダム削除", dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
 </div>
 	<%=link_to "ダム一覧へ", dams_path %>
+</div>

@@ -1,33 +1,36 @@
 <%= render 'admin/header' %>
 
 <h1>ダム追加</h1>
-
-  <%= form_with model: @dam, url: admin_dams_path  do |f| %>
-  	<h4>ダム名</h4>
-		<%=f.text_field :title %>
-	<h4>紹介文</h4>
-		<%=f.text_area :body %>
-	<h4>電力会社</h4>
-		<%= f.select :category, Dam.categories.keys,{include_blank: '選択してください'} %>
-	<h4>画像</h4>
-	<%= attachment_image_tag @dam, :image, fallback: 'no_image2.jpg', class: 'img_prev' %>
-	<br>
-	<%= f.file_field :images, multiple: true ,class: 'img_field' %>
-	<h4>郵便番号</h4>
-		<%=f.text_field :postal_code %>
-	<h4>都道府県</h4>
-		<!-- f.select とf.collection_selectの違いはまた調べる-->
-		<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name ,{include_blank: '選択してください'}%>
-	<h4>都市</h4>
-		<%=f.text_field :city %>
-	<h4>番地</h4>
-		<%=f.text_field :street %>
-	<h4>リンク</h4>
-		<%=f.text_field :url %>
-	<div>
-		<br>
-	<%= f.submit '追加する' %>
-	</div>
-<% end %>
-<br>
-<%=link_to "ダム一覧へ", admin_dams_path %>
+	<%= form_with model: @dam, url: admin_dams_path  do |f| %>
+	 	<div class="main">
+		  	<h4>ダム名</h4>
+				<%=f.text_field :title %>
+			<h4>紹介文</h4>
+				<%=f.text_area :body %>
+			<h4>電力会社</h4>
+				<%= f.select :category, Dam.categories.keys,{include_blank: '選択してください'} %>
+			<h4>画像(上限４枚まで）</h4>
+				<%= attachment_image_tag @dam, :image, fallback: 'no_image2.jpg', class: 'img_prev' %>
+				<br>
+				<%= f.file_field :images, multiple: true ,class: 'img_field' %>
+		</div>
+		<div class="clearfix">
+			<h4>郵便番号</h4>
+				<%=f.text_field :postal_code %>
+			<h4>都道府県</h4>
+				<!-- f.select とf.collection_selectの違いはまた調べる-->
+				<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name ,{include_blank: '選択してください'}%>
+			<h4>都市</h4>
+				<%=f.text_field :city %>
+			<h4>番地</h4>
+				<%=f.text_field :street %>
+			<h4>リンク</h4>
+				<%=f.text_field :url %>
+			<div>
+				<br>
+				<%= f.submit '追加する' %>
+			</div>
+				<br>
+				<%=link_to "ダム一覧へ", admin_dams_path %>
+		</div>
+	<% end %>

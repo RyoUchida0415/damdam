@@ -1,6 +1,7 @@
 <%= render 'admin/header' %>
 
 <div class="main">
+  <i class="fas fa-building" style="color: green;"></i>
     <a>[<%= @dam.category %>]</a><h1><%= @dam.title %></h1>
         <div class="many_images">
             <% @dam.images.each do |image| %>
@@ -11,6 +12,7 @@
            <%= @dam.body %>
         </div>
         <div>
+          <i class="fas fa-map-marker-alt"></i>
           〒<%= @dam.postal_code %>
           <%= @dam.prefecture_code %>
           <%= @dam.city %>
@@ -72,19 +74,23 @@
 
     </div>
 </div>
-<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-        <%= @dam.favorites.count %>
+<div class="submain">
+  <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+          <%= @dam.favorites.count %>
 
-  <p><i class="far fa-comment"></i>評判</p>
-		<% @dam.post_comments.each do |post_comment| %>
-			<div>
-				<%= post_comment.created_at.strftime('%Y/%m/%d') %>
-				<%= post_comment.user.name %>さん
-				<%= post_comment.comment %>
-			    <%= link_to "コメント削除", admin_dam_path(@dam), method: :delete %>
-			</div>
-		<% end %>
-<div>
-  <%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
+    <p><i class="far fa-comment"></i>評判</p>
+  		<% @dam.post_comments.each do |post_comment| %>
+  			<div>
+  				<%= post_comment.created_at.strftime('%Y/%m/%d') %>
+  				<%= post_comment.user.name %>さん
+  				<%= post_comment.comment %>
+          <i class="far fa-trash-alt"></i>
+  			    <%= link_to "コメント削除", admin_dam_path(@dam), method: :delete  %>
+            <% end %>
+  			</div>
+  <div>
+    <i class="far fa-trash-alt"></i>
+    <%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
+  </div>
+    <%=link_to "ダム一覧へ", admin_dams_path %>
 </div>
-  <%=link_to "ダム一覧へ", admin_dams_path %>

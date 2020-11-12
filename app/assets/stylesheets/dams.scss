@@ -22,9 +22,17 @@
 .main{
 	float: left;
 	width:50%;
+	margin-left:5%;
 }
-
+.submain{
+	margin-left:5%;
+}
 #map{
 	float: left;
 	margin-top:110px;
+}
+
+.many_images img{
+	width: 33%;
+	height: 235px;
 }
