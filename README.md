@@ -1,25 +1,33 @@
-# README
+# <アプリ名>Damdam
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ダム情報共有アプリ
 
-Things you may want to cover:
+## サイトテーマ
+ダムに関する情報を得ることができ、それに対するレビュー等ができる
 
-* Ruby version
+## テーマを選んだ理由
+全国のダムファンの心に響くような物を作りたかったから
 
-* System dependencies
+## ターゲットユーザ
+ダムカードを集めているような全国のダムファン
 
-* Configuration
+## 主な利用シーン
+ダムに関する情報収集をしたい時
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# damdam
+## 機能一覧
+・ログイン機能
+・管理画面あり
+・画像複数投稿機能
+・画像プレビュー機能
+・検索機能
+・Google Map API
+・いいね機能
+・コメント機能
+・ハンバーガーメニュー
+## 開発環境
+* OS：Linux(CentOS)
+* 言語：HTML,CSS,JavaScript,Ruby,SQL
+* フレームワーク：Ruby on Rails
+* JSライブラリ：jQuery
+* 仮想環境：Vagrant,VirtualBox
