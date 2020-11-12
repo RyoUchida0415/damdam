@@ -16,7 +16,7 @@
 	<div>
 		<%= link_to dam.title ,dam_path(dam) %>
 	</div>
-		<div class="image">
+	<div class="image">
         <% dam.images.each do |image| %>
             <%= image_tag image.to_s %>
             <% break %>
