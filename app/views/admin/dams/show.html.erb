@@ -84,12 +84,12 @@
   				<%= post_comment.created_at.strftime('%Y/%m/%d') %>
   				<%= post_comment.user.name %>さん
   				<%= post_comment.comment %>
-          <i class="far fa-trash-alt"></i>
+          <i class="far fa-trash-alt" style="color: blue;"></i>
   			    <%= link_to "コメント削除", admin_dam_path(@dam), method: :delete  %>
             <% end %>
   			</div>
   <div>
-    <i class="far fa-trash-alt"></i>
+    <i class="far fa-trash-alt" style="color: blue;"></i>
     <%=link_to "ダム削除", admin_dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
   </div>
     <%=link_to "ダム一覧へ", admin_dams_path %>

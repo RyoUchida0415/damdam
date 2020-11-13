@@ -92,7 +92,7 @@
 				<%= post_comment.user.name %>さん
 				<%= post_comment.comment %>
 				<% if post_comment.user == current_user %>
-                  <i class="far fa-trash-alt"></i>
+          <i class="far fa-trash-alt" style="color: blue;"></i>
               		<%= link_to "削除", dam_post_comment_path(post_comment.dam, post_comment), method: :delete %>
           		<% end %>
 			</div>
@@ -103,7 +103,7 @@
 			<%= f.submit "送信する" %>
 		<% end %>
 <div>
-  <i class="far fa-trash-alt"></i>
+  <i class="far fa-trash-alt" style="color: blue;"></i>
 	<%=link_to "ダム削除", dam_path(@dam.id), method: :delete, "data-confirm"=>"本当に削除しますか？"%>
 </div>
 	<%=link_to "ダム一覧へ", dams_path %>
