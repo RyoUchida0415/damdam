@@ -2,8 +2,9 @@
 
 <h1>管理者：ダム一覧</h1>
 
-<% @dams.each do |dam| %>
+<% @dams.each.with_index(1)do |dam, i| %>
 <div class="one-dam">
+	第<%= i %>位
 	<div>
 		<%= link_to dam.title ,admin_dam_path(dam) %>
 	</div>
@@ -34,3 +35,35 @@
 </div>
 <%end%>
 
+<% @zero_dam.each.with_index( @dams.size + 1)do |dam, i| %>
+<div class="one-dam">
+	第<%= i %>位
+	<div>
+		<%= link_to dam.title ,dam_path(dam) %>
+	</div>
+	<div class="image">
+        <% dam.images.each do |image| %>
+            <%= image_tag image.to_s %>
+            <% break %>
+        <% end %>
+	</div>
+	<div>
+		<%= dam.body %>
+	</div>
+	<div>
+  		<i class="fas fa-building" style="color: green;"></i>
+		[<%= dam.category %>]
+	</div>
+	<div>
+		<i class="fas fa-map-marker-alt"></i>
+		〒<%= dam.postal_code %>
+	</div>
+	<div>
+		<%= dam.prefecture_code %>
+		<%= dam.city %>
+		<%= dam.street %>
+	</div>
+	<i class="far fa-comment"></i><%= dam.post_comments.count %>件
+	<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i><%= dam.favorites.count %>件
+</div>
+<%end%>
