@@ -18,8 +18,13 @@ class Admin::DamsController < ApplicationController
 
   def create
   	@dam = Dam.new(dam_params)
-  	@dam.save
-  	redirect_to admin_dams_path
+    if @dam.save
+      flash[:success] = 'ダム投稿できました！'
+      redirect_to admin_dams_path
+    else
+      flash[:danger] = 'ダム投稿出来ませんでした。空欄はありませんか？'
+      render 'new'
+    end
   end
 
   def destroy

@@ -1,7 +1,7 @@
 <%= render 'admin/header' %>
 
 <h1>管理者：ダム一覧</h1>
-
+<h3><%= flash[:success] %></h3>
 <% @dams.each.with_index(1)do |dam, i| %>
 <div class="one-dam">
 	第<%= i %>位
@@ -39,7 +39,7 @@
 <div class="one-dam">
 	第<%= i %>位
 	<div>
-		<%= link_to dam.title ,dam_path(dam) %>
+		<%= link_to dam.title ,admin_dam_path(dam) %>
 	</div>
 	<div class="image">
         <% dam.images.each do |image| %>

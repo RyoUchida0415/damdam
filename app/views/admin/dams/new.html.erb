@@ -1,6 +1,7 @@
 <%= render 'admin/header' %>
 
 <h1>ダム追加</h1>
+<h3><%= flash[:danger] %></h3>
 	<%= form_with model: @dam, url: admin_dams_path  do |f| %>
 	 	<div class="main">
 		  	<h4>ダム名</h4>
