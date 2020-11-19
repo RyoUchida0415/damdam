@@ -9,9 +9,6 @@ class Admin::DamsController < ApplicationController
     @dam = Dam.find(params[:id])
   end
 
-  def edit
-  end
-
   def new
   	@dam = Dam.new
   end

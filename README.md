@@ -27,6 +27,7 @@
 ・ハンバーガーメニュー
 ・ランキング機能
 ・住所自動入力機能
+・バリデーション機能
 ## 開発環境
 * OS：Linux(CentOS)
 * 言語：HTML,CSS,JavaScript,Ruby,SQL
