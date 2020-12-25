@@ -1,8 +1,5 @@
 <%= render 'admin/header' %>
-
 <h4><%= @user.name %>さんのお気に入り一覧</h4>
-
-
 <% @favorites.each do |favorite| %>
 	<div>
 		<%= link_to dam_path(favorite.dam.id) do %>
